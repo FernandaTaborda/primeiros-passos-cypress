@@ -33,17 +33,12 @@ import userData from '../fixtures/userData.json'
     cy.get(selectorsList.driveLicenseNumberField).clear().type(userData.personalDetails.driveLicenseNumber)
     cy.get(selectorsList.licenseExpiryDateField).clear().type(userData.personalDetails.licenseExpiryDate)  
     cy.get(selectorsList.closeCalendar).click()
-
     cy.get(selectorsList.dropDownTables).eq(0).should('be.visible').click()
     cy.get('.oxd-select-dropdown').contains(userData.personalDetails.nationality).click()
-
     cy.get(selectorsList.dropDownTables).eq(1).click()
     cy.get('.oxd-select-dropdown').contains(userData.personalDetails.maritalSatatus).click()
-
     cy.get(selectorsList.dateOfBirth).clear().type(userData.personalDetails.dateOfBirth)
     cy.get(selectorsList.closeCalendar).click()
-
     cy.get(selectorsList.genderField).contains(userData.personalDetails.gender).click()
-
-    //cy.get(selectorsList.saveButton).click()
+    cy.get(selectorsList.saveButton).click()
   })
