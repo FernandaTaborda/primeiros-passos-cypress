@@ -13,7 +13,10 @@
     "lastName": "Gomes",
     "employerID": "2035",
     "driveLicenseNumber": "A777C7",
-    "licenseExpiryDate": "2024-25-10",
-    "nationality": "Brazilian"
+    "licenseExpiryDate": "2025-25-10",
+    "nationality": "Algerian",
+    "maritalSatatus": "Single",
+    "dateOfBirth": "2000-30-08",
+    "gender": "Female"
   }
 }
