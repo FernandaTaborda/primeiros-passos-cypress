@@ -1,31 +1,18 @@
+import loginPage from '../pages/loginPage.js'
+import menuPage from '../pages/menuPage.js'
 import userData from '../fixtures/userData.json'
 
-describe('Orange HRM Tests', () => {
-  //Selector list -- Lista de seletores
-  const selectorsList = {
-    usernameField: "[name='username']",
-    passwordField: "[name='password']",
-    loginButton: "[type='submit']",
-    dashboardGrid: ".orangehrm-dashboard-grid",
-    wrongCredantialAlert: ".oxd-alert"
-  }
+const login = new loginPage
+const page = new menuPage
 
-  //Sucess login test -- Teste de Login com sucesso
-  it('Login - Success', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorsList.usernameField).type(userData.userSuccess.username)
-    cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
-    cy.get(selectorsList.loginButton).click()
-    cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
-    cy.get(selectorsList.dashboardGrid)
+describe('LoginOrange HRM Tests', () => {
+  it('Failed login -- Login com falha', () => {
+    page.acessLogin()
+    login.loginWithAnyUser(userData.userFail.username, userData.userFail.password)
+    login.checkAcessInvalid()
   })
-
-  //Fail login test -- Teste de Login com falha
-  it('Login - fail', () =>{
-    cy.visit('/auth/login')
-    cy.get(selectorsList.usernameField).type(userData.userFail.username)
-    cy.get(selectorsList.passwordField).type(userData.userFail.password)
-    cy.get(selectorsList.loginButton).click()
-    cy.get(selectorsList.wrongCredantialAlert)
+  it('Sucessfull login -- Login com sucesso', () => {
+    page.acessLogin()
+    login.loginWithAnyUser(userData.userSuccess.username, userData.userSuccess.password)
   })
 })
