@@ -3,9 +3,10 @@ import loginPage from '../pages/loginPage.js'
 import myInfoPage from '../pages/myInfoPage.js'
 import menuPage from '../pages/menuPage.js'
 
-const login = new loginPage
-const myInfo = new myInfoPage
-const page = new menuPage
+
+const login = new loginPage()
+const myInfo = new myInfoPage()
+const page = new menuPage()
 
 describe('LoginOrange HRM Tests', () => {
   it('My info - alteration', () => {
